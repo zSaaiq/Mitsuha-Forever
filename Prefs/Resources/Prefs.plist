@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+    		<key>cell</key>
+    		<string>PSGroupCell</string>
+    		<key>headerCellClass</key>
+    		<string>MSHFPackageNameHeaderCell</string>
+    		<key>packageIdentifier</key>
+    		<string>com.ryannair05.mitsuhaforever</string>
+			<!--<key>icon</key>
+    		<string>icon@3x.png</string>-->
+    		<key>titleColor</key>
+   		 	<string>#ffffff</string>
+    		<key>subtitleColor</key>
+   		 	<string>#e0e0e0</string>
+			<key>backgroundGradientColors</key>
+    		<array>
+        		<string>#ee645c</string>
+        		<string>#ee645c</string>
+   		 	</array>
+		</dict>
+
+		<!-- Apps -->
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Configuration</string>
+			<key>isStaticText</key>
+			<true/>
+            <key>id</key>
+            <string>apps</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.ryannair05.mitsuhaforever</string>
+			<key>label</key>
+			<string>Enable sensitivity boost (AirPods 2 + Pro)</string>
+			<key>key</key>
+			<string>MSHFAirpodsSensBoost</string>
+			<key>alternateColors</key>
+			<true/>
+		</dict>
+
+		<!-- Credits -->
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Other</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respring:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>cellClass</key>
+    		<string>MSHFTintedTableCell</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>restartmsd:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>cellClass</key>
+    		<string>MSHFTintedTableCell</string>
+			<key>label</key>
+			<string>Restart mediaserverd</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>resetPrefs:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>cellClass</key>
+    		<string>MSHFTintedTableCell</string>
+			<key>isDestructive</key>
+			<true />
+			<key>confirmation</key>
+			<dict>
+				<key>prompt</key>
+				<string>Are you sure you want to reset all your Mitsuha Forever preferences? This can not be undone.</string>
+				<key>title</key>
+				<string>OK</string>
+				<key>okTitle</key>
+				<string>OK</string>
+				<key>cancelTitle</key>
+				<string>Cancel</string>
+			</dict>
+			<key>label</key>
+			<string>Restore default settings and respring</string>
+		</dict>
+		<dict>
+		<key>cellClass</key>
+		<string>MSHFTwitterCell</string>
+		<key>label</key>
+		<string>Ryan Nair</string>
+		<key>subtitle</key>
+		<string>Current Developer of Mitsuha Forever</string>
+		<key>user</key>
+		<string>ryannair05</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>MSHFLinkTableCell</string>
+			<key>label</key>
+			<string>Github</string>
+			<key>subtitle</key>
+			<string>Source code</string>
+			<key>url</key>
+			<string>https://github.com/ryannair05/MitsuhaForever</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>MSHFLinkTableCell</string>
+			<key>label</key>
+			<string>Donate to c0ldra1n</string>
+			<key>subtitle</key>
+			<string>Original developer of Mitsuha for iOS 9 and 10</string>
+			<key>url</key>
+			<string>https://www.paypal.me/c0ldra1n</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Mitsuha Forever</string>
+</dict>
+</plist>
