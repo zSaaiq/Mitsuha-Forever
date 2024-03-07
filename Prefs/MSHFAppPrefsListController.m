@@ -71,31 +71,33 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
+    [super viewDidAppear:animated];
     self.table.separatorColor = [UIColor colorWithWhite:0 alpha:0];
 
-    UIWindow *keyWindow = [[[UIApplication sharedApplication] windows] firstObject];
+    UIWindowScene *keyWindowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] allObjects].firstObject;
+    UIWindow *keyWindow = keyWindowScene.windows.firstObject;
 
     if ([keyWindow respondsToSelector:@selector(setTintColor:)]) {
         keyWindow.tintColor = [UIColor colorWithRed:238.0f / 255.0f
                                                 green:100.0f / 255.0f
                                                 blue:92.0f / 255.0f
-                                                alpha:1]; 
-	}
+                                                alpha:1];
+    }
 
     [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = [UIColor colorWithRed:238.0f / 255.0f
-                                            green:100.0f / 255.0f
-                                            blue:92.0f / 255.0f
-                                            alpha:1]; 
+                                                                                                        green:100.0f / 255.0f
+                                                                                                         blue:92.0f / 255.0f
+                                                                                                        alpha:1];
 
 
-	if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-		self.edgesForExtendedLayout = UIRectEdgeNone;
-	}
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 }
 
+
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -104,7 +106,7 @@
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
 
-    NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
+    NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
     NSMutableDictionary *settings = [NSMutableDictionary dictionary];
     [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 

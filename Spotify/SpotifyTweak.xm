@@ -17,6 +17,7 @@ MSHFConfig *config = NULL;
 %end
 
 %hook SPTVideoDisplayView
+
 - (void)refreshVideoRect {
     %orig;
 
@@ -39,7 +40,7 @@ MSHFConfig *config = NULL;
     %orig;
 
     NSLog(@"[Mitsuha]: viewDidLoad");
-    
+
     if (![config view]) [config initializeViewWithFrame:CGRectMake(0, config.waveOffset, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.mshfview = [config view];
     [self.mshfview setUserInteractionEnabled:NO];
@@ -51,7 +52,6 @@ MSHFConfig *config = NULL;
     [self.mshfview.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     [self.mshfview.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     [self.mshfview.heightAnchor constraintEqualToConstant:self.mshfview.frame.size.height].active = YES;
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -62,11 +62,11 @@ MSHFConfig *config = NULL;
 -(void)viewDidAppear:(BOOL)animated{
     %orig;
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
+
         [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height/2 + config.waveOffset);
-        
+
     } completion:nil];
-    
+
     [[config view] resetWaveLayers];
 
     if (config.colorMode == 1) {
@@ -100,26 +100,26 @@ static CGFloat originalCenterY = 0;
 
 -(void)viewWillAppear:(BOOL)animated{
     %orig;
-    
+
     NSLog(@"[Mitsuha]: originalCenterY: %lf", originalCenterY);
-    
+
     CGPoint center = self.view.coverArtView.center;
-    
+
     self.view.coverArtView.alpha = 0;
     self.view.coverArtView.center = CGPointMake(center.x, originalCenterY);
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     %orig;
-    
+
     NSLog(@"[Mitsuha]: viewDidAppear");
-    
+
     CGPoint center = self.view.coverArtView.center;
-    
+
     if(originalCenterY == 0){
         originalCenterY = center.y;
     }
-    
+
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.view.coverArtView.alpha = 1.0;
         self.view.coverArtView.center = CGPointMake(center.x, originalCenterY * 0.8);
@@ -134,9 +134,9 @@ static CGFloat originalCenterY = 0;
 
 -(void)viewWillDisappear:(BOOL)animated{
     %orig;
-    
+
     CGPoint center = self.view.coverArtView.center;
-    
+
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.view.coverArtView.alpha = 0;
         self.view.coverArtView.center = CGPointMake(center.x, originalCenterY);
@@ -149,15 +149,14 @@ static CGFloat originalCenterY = 0;
 
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"Spotify"];
-    
+
     if(config.enabled){
-        config.waveOffsetOffset = 520;
-        
+        config.waveOffsetOffset = 662;
         if ([%c(CFWPrefsManager) class] && MSHookIvar<BOOL>([%c(CFWPrefsManager) sharedInstance], "_spotifyEnabled") && !config.ignoreColorFlow) {
             MSHFColorFlowSpotifyEnabled = YES;
         }
         %init(MitsuhaVisuals);
         if (config.enableCoverArtBugFix) %init(MitsuhaSpotifyCoverArtFix)
-        
+
     }
 }

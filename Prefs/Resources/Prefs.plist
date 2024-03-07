@@ -5,37 +5,6 @@
 	<key>items</key>
 	<array>
 		<dict>
-    		<key>cell</key>
-    		<string>PSGroupCell</string>
-    		<key>headerCellClass</key>
-    		<string>MSHFPackageNameHeaderCell</string>
-    		<key>packageIdentifier</key>
-    		<string>com.ryannair05.mitsuhaforever</string>
-			<!--<key>icon</key>
-    		<string>icon@3x.png</string>-->
-    		<key>titleColor</key>
-   		 	<string>#ffffff</string>
-    		<key>subtitleColor</key>
-   		 	<string>#e0e0e0</string>
-			<key>backgroundGradientColors</key>
-    		<array>
-        		<string>#ee645c</string>
-        		<string>#ee645c</string>
-   		 	</array>
-		</dict>
-
-		<!-- Apps -->
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Configuration</string>
-			<key>isStaticText</key>
-			<true/>
-            <key>id</key>
-            <string>apps</string>
-		</dict>
-		<dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -43,14 +12,14 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Enable sensitivity boost (AirPods 2 + Pro)</string>
+			<string>Enable sensitivity boost</string>
+			<key>subtitle</key>
+			<string>(AirPods 2 + Pro)</string>
 			<key>key</key>
 			<string>MSHFAirpodsSensBoost</string>
 			<key>alternateColors</key>
 			<true/>
 		</dict>
-
-		<!-- Credits -->
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -63,7 +32,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>cellClass</key>
-    		<string>MSHFTintedTableCell</string>
+			<string>MSHFTintedTableCell</string>
 			<key>label</key>
 			<string>Respring</string>
 		</dict>
@@ -73,7 +42,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>cellClass</key>
-    		<string>MSHFTintedTableCell</string>
+			<string>MSHFTintedTableCell</string>
 			<key>label</key>
 			<string>Restart mediaserverd</string>
 		</dict>
@@ -83,9 +52,9 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>cellClass</key>
-    		<string>MSHFTintedTableCell</string>
+			<string>MSHFTintedTableCell</string>
 			<key>isDestructive</key>
-			<true />
+			<true/>
 			<key>confirmation</key>
 			<dict>
 				<key>prompt</key>
@@ -101,20 +70,30 @@
 			<string>Restore default settings and respring</string>
 		</dict>
 		<dict>
-		<key>cellClass</key>
-		<string>MSHFTwitterCell</string>
-		<key>label</key>
-		<string>Ryan Nair</string>
-		<key>subtitle</key>
-		<string>Current Developer of Mitsuha Forever</string>
-		<key>user</key>
-		<string>ryannair05</string>
+			<key>cellClass</key>
+			<string>MSHFTwitterCell</string>
+			<key>label</key>
+			<string>Ryan Nair</string>
+			<key>subtitle</key>
+			<string>Current Developer of Mitsuha Forever</string>
+			<key>user</key>
+			<string>ryannair05</string>
 		</dict>
 		<dict>
 			<key>cellClass</key>
 			<string>MSHFLinkTableCell</string>
 			<key>label</key>
-			<string>Github</string>
+			<string>Github zSaaiq</string>
+			<key>subtitle</key>
+			<string>Source code</string>
+			<key>url</key>
+			<string>https://github.com/zsaaiq/MitsuhaForever</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>MSHFLinkTableCell</string>
+			<key>label</key>
+			<string>Github ryannair05</string>
 			<key>subtitle</key>
 			<string>Source code</string>
 			<key>url</key>

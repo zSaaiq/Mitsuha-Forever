@@ -19,43 +19,6 @@ static MSHFConfig *mshConfig;
 %end
 %end
 
-%group Prysm
-
-%hook PrysmMainPageViewController
-- (void)setIsPresented:(BOOL)isPresented {
-    %orig;
-    if (isPresented) {
-        [mshConfig.view start];
-    }
-    else {
-        [mshConfig.view stop];
-    }
-}
-%end
-
-%hook PrysmMediaModuleViewController
-
-%property (strong,nonatomic) MSHFView *mshfView;
-
--(void)viewDidLoad {
-
-    %orig;
-
-    if (![mshConfig view]) [mshConfig initializeViewWithFrame:self.view.bounds];
-    self.mshfView = [mshConfig view];
-
-    [self.view addSubview:self.mshfView];
-    [self.view bringSubviewToFront:self.mshfView];
-
-    self.mshfView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.mshfView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
-    [self.mshfView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-    [self.mshfView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-    [NSLayoutConstraint constraintWithItem:self.mshfView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0.5 constant:-mshConfig.waveOffset].active = YES;
-}
-%end
-%end
-
 %group ControlCenter
 
 %hook MRUControlCenterViewController
@@ -68,12 +31,12 @@ static MSHFConfig *mshConfig;
     self.mshfView = [mshConfig view];
 
     self.mshfView.layer.cornerRadius = 19;
-    
+
     #pragma clang diagnostic push
     #pragma clang diagnostic ignored "-Wunguarded-availability-new"
     self.mshfView.layer.cornerCurve = kCACornerCurveCircular;
     #pragma clang diagnostic pop
-    
+
     self.mshfView.layer.maskedCorners = kCALayerMaxXMaxYCorner | kCALayerMinXMaxYCorner;
     self.mshfView.layer.masksToBounds = TRUE;
 
@@ -94,7 +57,7 @@ static MSHFConfig *mshConfig;
     else {
         self.mshfView.layer.cornerRadius = 19;
     }
-    
+
 }
 -(void)viewWillAppear:(BOOL)animated {
     %orig;
@@ -112,31 +75,10 @@ static MSHFConfig *mshConfig;
 
 %ctor{
 
-    bool prysmEnabled;
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:PrysmTweakDylibFile]) {
-        mshConfig = [MSHFConfig loadConfigForApplication:@"ControlCenter"];
-        prysmEnabled = TRUE;
-
-        NSDictionary *prysmPrefs = [[NSDictionary alloc] initWithContentsOfFile:PrysmPreferencesFile];
-        if (prysmPrefs) {
-            if (![([prysmPrefs objectForKey:@"enable"] ?: @(YES)) boolValue]) {
-                prysmEnabled = false;
-            }
-        }
-    }
-    else if (@available(iOS 14.2, *)) {
-        mshConfig = [MSHFConfig loadConfigForApplication:@"ControlCenter"];
-    }
-
+    mshConfig = [MSHFConfig loadConfigForApplication:@"ControlCenter"];
+    
     if (mshConfig && mshConfig.enabled) {
         %init(SBMediaHook);
-
-        if (prysmEnabled) {
-            dlopen("/Library/Prysm/Bundles/com.laughingquoll.prysm.PrysmMedia.bundle/PrysmMedia", RTLD_NOW);
-            dlopen("/Library/MobileSubstrate/DynamicLibraries/Prysm.dylib", RTLD_NOW);
-            %init(Prysm);
-        }
-        else %init(ControlCenter);
+        %init(ControlCenter);
     }
 }

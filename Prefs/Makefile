@@ -1,11 +1,11 @@
 ARCHS = arm64 arm64e
-
+THEOS_PACKAGE_SCHEME=rootless
 include $(THEOS_MAKE_PATH)/common.mk
 
 BUNDLE_NAME = MitsuhaForeverPrefs
 $(BUNDLE_NAME)_FILES = MSHFPrefsListController.m MSHFAppPrefsListController.m
 $(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
-$(BUNDLE_NAME)_LIBRARIES = colorpicker mitsuhaforever
+$(BUNDLE_NAME)_LIBRARIES += colorpicker mitsuhaforever
 $(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
 
 include $(THEOS_MAKE_PATH)/bundle.mk

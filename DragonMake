@@ -1,67 +1,65 @@
----
-name: Mitsuha Forever
-icmd: killall -9 SpringBoard
+# Mitsuha Forever Makefile
 
-all:
-  targetvers: 15.0
-  archs:
-    - arm64
-    - arm64e
-  optim: 3
+# Compiler und Compiler-Flags
+CC = gcc
+CFLAGS = -Wall
 
+# Standardziel: Alle Ziele bauen
+all: ASSWatchdog MitsuhaForeverHomeScreen \
+     MitsuhaForeverSpotify MitsuhaForeverSpringboardLS \
+     MitsuhaForeverSpringboardLSBackground MitsuhaForeverPrefs
+
+# ASSWatchdog Ziel
 ASSWatchdog:
-    dir: ASSWatchdog
-    type: tweak
-    c_files:
-        - "Tweak.c"
-MitsuhaForeverHomeScreen:
-    dir: Homescreen
-    type: tweak
-    logos_files:
-        - "HomescreenTweak.xm"
-    libs:
-        - MitsuhaForever
-    frameworks:
-        - MediaRemote
-MitsuhaForeverMusic:
-    dir: Music
-    type: tweak
-    logos_files:
-        - "MusicTweak.xm"
-    libs:
-        - MitsuhaForever
-MitsuhaForeverSpotify:
-    dir: Spotify
-    type: tweak
-    logos_files:
-        - "SpotifyTweak.xm"
-    libs:
-        - MitsuhaForever
-MitsuhaForeverSpringboardLS:
-    dir: SpringboardLS
-    type: tweak
-    logos_files:
-        - "SBTweak.xm"
-    libs:
-        - MitsuhaForever
-    frameworks:
-        - MediaRemote
-MitsuhaForeverSpringboardLSBackground:
-    dir: SpringboardLSBackground
-    type: tweak
-    logos_files:
-        - "SBLSTweak.xm"
-    libs:
-        - MitsuhaForever
-    frameworks:
-        - MediaRemote
+    cd ASSWatchdog && $(MAKE)
 
+# MitsuhaForeverHomeScreen Ziel
+MitsuhaForeverHomeScreen:
+    cd Homescreen && $(MAKE)
+
+# MitsuhaForeverSpotify Ziel
+MitsuhaForeverSpotify:
+    cd Spotify && $(MAKE)
+
+# MitsuhaForeverSpringboardLS Ziel
+MitsuhaForeverSpringboardLS:
+    cd SpringboardLS && $(MAKE)
+
+# MitsuhaForeverSpringboardLSBackground Ziel
+MitsuhaForeverSpringboardLSBackground:
+    cd SpringboardLSBackground && $(MAKE)
+
+# MitsuhaForeverPrefs Ziel
 MitsuhaForeverPrefs:
-    dir: Prefs
-    type: prefs
-    objc_files:
-        - MSHFAppPrefsListController.m
-        - MSHFPrefsListController.m
-    libs:
-        - colorpicker
-        - mitsuhaforever
+    cd Prefs && $(MAKE)
+
+# Standardziel zum Bereinigen: Alle Unterverzeichnisse aufräumen
+clean:
+    cd ASSWatchdog && $(MAKE) clean
+    cd Homescreen && $(MAKE) clean
+    cd Spotify && $(MAKE) clean
+    cd SpringboardLS && $(MAKE) clean
+    cd SpringboardLSBackground && $(MAKE) clean
+    cd Prefs && $(MAKE) clean
+
+# Standardziel zum Installieren: Alle Tweaks und Prefs installieren
+install:
+    cp -r ASSWatchdog/*.dylib /usr/lib/
+    cp -r Homescreen/*.dylib /usr/lib/
+    cp -r Spotify/*.dylib /usr/lib/
+    cp -r SpringboardLS/*.dylib /usr/lib/
+    cp -r SpringboardLSBackground/*.dylib /usr/lib/
+    cp -r Prefs/*.dylib /usr/lib/
+
+# Standardziel zum Deinstallieren: Alle Tweaks und Prefs deinstallieren
+uninstall:
+    rm -f /usr/lib/*.dylib
+
+# Standardziel: Hilfe anzeigen
+help:
+    @echo "Verfügbare Ziele:"
+    @echo "    all        - Alle Tweaks und Prefs bauen"
+    @echo "    clean      - Alle Objekte und Binärdateien löschen"
+    @echo "    install    - Alle Tweaks und Prefs installieren"
+    @echo "    uninstall  - Alle Tweaks und Prefs deinstallieren"
+    @echo "    help       - Diese Hilfe anzeigen"
