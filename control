@@ -1,10 +1,10 @@
 Package: com.ryannair05.mitsuhaforever
 Name: Mitsuha Forever
-Depends: mobilesubstrate, preferenceloader, com.ryannair05.libmitsuhaforever (>=1.4.0), ws.hbang.alderis, firmware (>=15.0)
-Replaces: io.c0ldra1n.mitsuha, io.ominousness.mitsuhaxi, me.nepeta.mitsuhainfinity, me.nepeta.mitsuhainfinity-lockscreen
-Version: 2.0
+Depends: firmware (>=15.0), mobilesubstrate, preferenceloader, com.ryannair05.libmitsuhaforever (>=2.0), com.ryannair05.audiosnapshotserver (>=2.3), ws.hbang.alderis
+Replaces: com.ryannair05.mitsuhaforever (=1.4.1), com.ryannair05.mitsuhaforever (=1.4.2), com.ryannair05.mitsuhaforever (=1.4.3), com.ryannair05.libmitsuhaforever (=1.4.0)
+Version: 2.1
 Architecture: iphoneos-arm
 Description: Universal audio visualizer for iOS
 Maintainer: zSaaiq
-Author: Ryan Nair, ConorTheDev, and Nepeta
+Author: zSaaiq, Ryan Nair, ConorTheDev, and Nepeta
 Section: Tweaks

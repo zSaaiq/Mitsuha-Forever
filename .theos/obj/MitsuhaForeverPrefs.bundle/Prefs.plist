@@ -22,22 +22,6 @@
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.ryannair05.mitsuhaforever</string>
-			<key>label</key>
-			<string>Enable SB LS</string>
-			<key>subtitle</key>
-			<string>Enables Springboard LS haha.</string>
-			<key>key</key>
-			<string>MSHFLockscreenEnabled</string>
-			<key>lockScreenEnabled</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Other</string>
