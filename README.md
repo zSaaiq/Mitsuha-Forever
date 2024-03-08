@@ -3,7 +3,7 @@
 This is a fork of a Nepeta's excellent tweak - [MitsuhaInfinity](https://github.com/Nepeta/MitsuhaInfinity) with support for iOS 15-16 Rootless, bug fixes and new features
 
 ## Screenshots
-<img src="Preview.png" alt="Preview" />
+<img src="Preview.PNG" alt="Preview" />
 
 ## Installation
 
