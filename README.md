@@ -1,6 +1,6 @@
 # Mitsuha Forever
 
-This is a fork of a Nepeta's excellent tweak - [MitsuhaInfinity](https://github.com/Nepeta/MitsuhaInfinity) with support for iOS 15-16 Rootless, bug fixes and new features
+This is a fork of a Nepeta's and ryannair05 tweak - [MitsuhaForever](https://github.com/ryannair05/MitsuhaForever) with support for iOS 15-16 Rootless, spotify wavehigh fixed and more to come.
 
 ## Screenshots
 <img src="Preview.PNG" alt="Preview" />
