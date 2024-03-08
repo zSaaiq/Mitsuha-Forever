@@ -1,4 +1,4 @@
-/Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64/MSHFAppPrefsListController.m.10224741.o: \
+/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64e/MSHFAppPrefsListController.m.deada529.o: \
   MSHFAppPrefsListController.m /Users/kevinmuller/theos/Prefix.pch \
   MSHFAppPrefsListController.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
@@ -37,7 +37,9 @@
   /Users/kevinmuller/theos/vendor/include/Preferences/PSTableCell.h \
   /Users/kevinmuller/theos/vendor/include/Preferences/PSSpecifier.h \
   /Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h
+  /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h \
+  /Users/kevinmuller/theos/vendor/include/rootless.h \
+  /Users/kevinmuller/theos/vendor/include/libroot/libroot.h
 
 /Users/kevinmuller/theos/Prefix.pch:
 
@@ -116,3 +118,7 @@ MSHFAppPrefsListController.h:
 /Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h:
 
 /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h:
+
+/Users/kevinmuller/theos/vendor/include/rootless.h:
+
+/Users/kevinmuller/theos/vendor/include/libroot/libroot.h:

@@ -1,6 +1,7 @@
-/Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64e/MSHFAppPrefsListController.m.80f0b8f7.o: \
-  MSHFAppPrefsListController.m /Users/kevinmuller/theos/Prefix.pch \
-  MSHFAppPrefsListController.h \
+/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64/SpotifyTweak.xm.a685e994.o: \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64/SpotifyTweak.xm.mm \
+  /Users/kevinmuller/theos/Prefix.pch \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/Spotify/Tweak.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h \
   /Users/kevinmuller/theos/vendor/include/libhooker/module.modulemap \
@@ -21,27 +22,11 @@
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFJelloLayer.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFBarView.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFLineView.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PreferencesAppController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSSystemPolicyForApp.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSSwitchTableCell.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSSliderTableCell.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSRootController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSListItemsController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSViewController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSListController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSHeaderFooterView.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSEditableTableCell.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSDiscreteSlider.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSControlTableCell.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSBundleController.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSTableCell.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/PSSpecifier.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h
+  /Users/kevinmuller/theos/vendor/include/substrate.h
 
 /Users/kevinmuller/theos/Prefix.pch:
 
-MSHFAppPrefsListController.h:
+/Users/kevinmuller/Desktop/Mitsuha-Forever/Spotify/Tweak.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h:
 
@@ -83,36 +68,4 @@ MSHFAppPrefsListController.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFLineView.h:
 
-/Users/kevinmuller/theos/vendor/include/Preferences/PreferencesAppController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSSystemPolicyForApp.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSSwitchTableCell.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSSliderTableCell.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSRootController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSListItemsController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSViewController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSListController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSHeaderFooterView.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSEditableTableCell.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSDiscreteSlider.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSControlTableCell.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSBundleController.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSTableCell.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/PSSpecifier.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h:
-
-/Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h:
+/Users/kevinmuller/theos/vendor/include/substrate.h:

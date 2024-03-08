@@ -1,7 +1,7 @@
-/Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64/ControlCenterTweak.xm.66c3bf93.o: \
-  /Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64/ControlCenterTweak.xm.mm \
+/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64e/SBTweak.xm.6ec9c7ad.o: \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64e/SBTweak.xm.mm \
   /Users/kevinmuller/theos/Prefix.pch \
-  /Users/kevinmuller/Desktop/MitsuhaForever/Springboard/Tweak.h \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/Springboard/Tweak.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h \
   /Users/kevinmuller/theos/vendor/include/libhooker/module.modulemap \
@@ -27,7 +27,7 @@
 
 /Users/kevinmuller/theos/Prefix.pch:
 
-/Users/kevinmuller/Desktop/MitsuhaForever/Springboard/Tweak.h:
+/Users/kevinmuller/Desktop/Mitsuha-Forever/Springboard/Tweak.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h:
 

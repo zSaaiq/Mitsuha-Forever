@@ -2,7 +2,7 @@ Package: com.ryannair05.mitsuhaforever
 Name: Mitsuha Forever
 Depends: firmware (>=15.0), mobilesubstrate, preferenceloader, com.ryannair05.libmitsuhaforever (>=2.0), com.ryannair05.audiosnapshotserver (>=2.3), ws.hbang.alderis
 Replaces: com.ryannair05.mitsuhaforever (=1.4.1), com.ryannair05.mitsuhaforever (=1.4.2), com.ryannair05.mitsuhaforever (=1.4.3), com.ryannair05.libmitsuhaforever (<=2)
-Version: 2.1
+Version: 2.2
 Architecture: iphoneos-arm
 Description: Universal audio visualizer for iOS currently Music Support is  removed and Preferences are broken. Spotify wavehigh is fixed, ControlCenter, Springboard, SpringboardCoverSheet and LockscreenMusicPlayer are working.
 Maintainer: zSaaiq

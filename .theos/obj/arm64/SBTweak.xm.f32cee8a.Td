@@ -1,7 +1,7 @@
-/Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64/SpotifyTweak.xm.9f954aea.o: \
-  /Users/kevinmuller/Desktop/MitsuhaForever/.theos/obj/arm64/SpotifyTweak.xm.mm \
+/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64/SBTweak.xm.f32cee8a.o: \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64/SBTweak.xm.mm \
   /Users/kevinmuller/theos/Prefix.pch \
-  /Users/kevinmuller/Desktop/MitsuhaForever/Spotify/Tweak.h \
+  /Users/kevinmuller/Desktop/Mitsuha-Forever/Springboard/Tweak.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h \
   /Users/kevinmuller/theos/vendor/include/libhooker/module.modulemap \
@@ -22,11 +22,12 @@
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFJelloLayer.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFBarView.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFLineView.h \
+  /Users/kevinmuller/theos/vendor/include/MediaRemote/MediaRemote.h \
   /Users/kevinmuller/theos/vendor/include/substrate.h
 
 /Users/kevinmuller/theos/Prefix.pch:
 
-/Users/kevinmuller/Desktop/MitsuhaForever/Spotify/Tweak.h:
+/Users/kevinmuller/Desktop/Mitsuha-Forever/Springboard/Tweak.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h:
 
@@ -67,5 +68,7 @@
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFBarView.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFLineView.h:
+
+/Users/kevinmuller/theos/vendor/include/MediaRemote/MediaRemote.h:
 
 /Users/kevinmuller/theos/vendor/include/substrate.h:

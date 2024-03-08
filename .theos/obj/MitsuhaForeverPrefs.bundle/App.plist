@@ -66,7 +66,7 @@
 			<key>isStaticText</key>
 			<true/>
 		</dict>
-        <dict>
+    <dict>
 			<key>cell</key>
 			<string>PSSegmentCell</string>
 			<key>default</key>

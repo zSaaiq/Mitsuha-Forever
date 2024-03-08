@@ -58,7 +58,7 @@
 }
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -66,7 +66,7 @@
 }
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -118,7 +118,7 @@
 
 - (void)resetPrefs:(id)sender {
 
-	NSString *plistPath = @"/Library/PreferenceLoader/Preferences/com.ryannair05.mitsuhaforever.plist";
+	NSString *plistPath = @"/var/mobile/Library/Preferences/com.ryannair05.mitsuhaforever.plist";
 
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
         NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
@@ -313,7 +313,7 @@
 
 	if (self) {
 		UIImageView *imageView = (UIImageView *)self.accessoryView;
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"/var/jb/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
 		imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		[imageView sizeToFit];
 
