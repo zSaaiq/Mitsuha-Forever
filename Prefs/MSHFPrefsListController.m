@@ -1,5 +1,5 @@
 #import "MSHFPrefsListController.h"
-
+#import <rootless.h>
 @implementation MSHFPrefsListController
 - (instancetype)init {
     self = [super init];
@@ -58,7 +58,7 @@
 }
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -66,7 +66,7 @@
 }
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -118,7 +118,7 @@
 
 - (void)resetPrefs:(id)sender {
 
-	NSString *plistPath = @"/var/jb/Library/PreferenceLoader/Preferences/com.ryannair05.mitsuhaforever.plist";
+	NSString *plistPath = @"/Library/PreferenceLoader/Preferences/com.ryannair05.mitsuhaforever.plist";
 
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
         NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
@@ -136,13 +136,13 @@
 - (void)respring:(id)sender {
 	pid_t pid;
     const char* args[] = {"killall", "backboardd", NULL};
-    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    posix_spawn(&pid, "/var/jb/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 }
 
 - (void)restartmsd:(id)sender {
 	pid_t pid;
     const char* args[] = {"killall", "mediaserverd", NULL};
-    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    posix_spawn(&pid, "/var/jb/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 }
 @end
 
@@ -313,7 +313,7 @@
 
 	if (self) {
 		UIImageView *imageView = (UIImageView *)self.accessoryView;
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"var/jb//Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
 		imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		[imageView sizeToFit];
 

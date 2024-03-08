@@ -2,21 +2,17 @@
 
 This is a fork of a Nepeta's excellent tweak - [MitsuhaInfinity](https://github.com/Nepeta/MitsuhaInfinity) with support for iOS 15-16 Rootless, bug fixes and new features
 
+## Screenshots
+<img src="Preview.png" alt="Preview" />
+
 ## Installation
 
 1. Add this repository to your package manager: https://zsaaiq.github.io/jailbreakrepo/
 2. Install **Mitsuha Forever**.
 
 ### Supported apps
-
-* Apple Music
 * Spotify
 * SpringBoard, Lockscreen, CC Music Player
-
-### Tweaks
-
-Should be compatible with Eclipse and similar tweaks.
-Works with Artsy.
 
 ## Donations
 

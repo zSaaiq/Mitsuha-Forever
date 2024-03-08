@@ -1,5 +1,5 @@
 #import "MSHFAppPrefsListController.h"
-
+#import <rootless.h>
 @implementation MSHFAppPrefsListController
 
 - (NSArray *)specifiers {
@@ -97,7 +97,7 @@
 
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -106,7 +106,7 @@
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
 
-    NSString *path = [NSString stringWithFormat:@"/var/jb/Library/PreferenceLoader/Preferences/%@.plist", specifier.properties[@"defaults"]];
+    NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
     NSMutableDictionary *settings = [NSMutableDictionary dictionary];
     [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
