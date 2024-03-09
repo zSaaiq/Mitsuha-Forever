@@ -192,7 +192,7 @@
 		self.selectionStyle = UITableViewCellSelectionStyleBlue;
 
 		//UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"safari" inBundle:globalBundle]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"/var/jb/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/safari.png"]]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"/var/mobile/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/safari.png"]]];
 		    imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		if (@available(iOS 13.0, *)) {
 			imageView.tintColor = [UIColor systemGray3Color];
@@ -313,7 +313,7 @@
 
 	if (self) {
 		UIImageView *imageView = (UIImageView *)self.accessoryView;
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"/var/jb/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"/var/mobile/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/twitter.png"]];
 		imageView.image = [imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		[imageView sizeToFit];
 

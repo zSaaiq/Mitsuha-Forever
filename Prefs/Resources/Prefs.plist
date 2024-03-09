@@ -2,28 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+		<key>cell</key>
+		<string>PSGroupCell</string>
+		<key>headerCellClass</key>
+		<string>MSHFPackageNameHeaderCell</string>
+		<key>packageIdentifier</key>
+		<string>com.ryannair05.mitsuhaforever</string>
+		<key>icon</key>
+		<string>icon@3x.png</string>
+		<key>titleColor</key>
+		<string>#ffffff</string>
+		<key>subtitleColor</key>
+		<string>#e0e0e0</string>
+		<key>backgroundGradientColors</key>
+		<array>
+			<string>#ee645c</string>
+			<string>#ee645c</string>
+		</array>
 	<key>items</key>
 	<array>
-		<dict>
-    		<key>cell</key>
-    		<string>PSGroupCell</string>
-    		<key>headerCellClass</key>
-    		<string>MSHFPackageNameHeaderCell</string>
-    		<key>packageIdentifier</key>
-    		<string>com.ryannair05.mitsuhaforever</string>
-			<!--<key>icon</key>
-    		<string>icon@3x.png</string>-->
-    		<key>titleColor</key>
-   		 	<string>#ffffff</string>
-    		<key>subtitleColor</key>
-   		 	<string>#e0e0e0</string>
-			<key>backgroundGradientColors</key>
-    		<array>
-        		<string>#ee645c</string>
-        		<string>#ee645c</string>
-   		 	</array>
-		</dict>
-
 		<!-- LS Music Player-->
 		<dict>
 			<key>cell</key>
@@ -73,7 +70,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>LS Music Player Enable FFT</string>
+			<string>FFT (frequency instead of amplitude)</string>
 			<key>key</key>
 			<string>MSHFSpringboardEnableFFT</string>
 			<key>alternateColors</key>
@@ -130,7 +127,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>HomeScreen Enable FFT</string>
+			<string>FFT (frequency instead of amplitude)</string>
 			<key>key</key>
 			<string>MSHFHomeScreenEnableFFT</string>
 			<key>alternateColors</key>
@@ -155,7 +152,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Lockscreen Enabled</string>
+			<string>Lockscreen (Bottom) Enabled</string>
 			<key>key</key>
 			<string>MSHFLockScreenEnabled</string>
 			<key>alternateColors</key>
@@ -163,7 +160,6 @@
 			<key>PostNotification</key>
 			<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
 		</dict>
-		<!-- Lockscreen ColorMode-->
 		<dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
@@ -172,7 +168,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Lockscreen Enable Auto Hide</string>
+			<string>Lockscreen (Bottom) Enable Auto Hide</string>
 			<key>key</key>
 			<string>MSHFLocksScreenEnableAutoHide</string>
 			<key>alternateColors</key>
@@ -188,7 +184,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Lockscreen Enable FFT</string>
+			<string>FFT (frequency instead of amplitude)</string>
 			<key>key</key>
 			<string>MSHFLocksScreenEnableFFT</string>
 			<key>alternateColors</key>
@@ -243,7 +239,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>ControlCenter Enable FFT</string>
+			<string>FFT (frequency instead of amplitude)</string>
 			<key>key</key>
 			<string>MSHFControlCenterEnableFFT</string>
 			<key>alternateColors</key>
@@ -252,6 +248,7 @@
 			<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
 		</dict>
 		<!-- Spotify -->
+		<!--
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -300,7 +297,7 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Spotify enable FFT</string>
+			<string>FFT (frequency instead of amplitude)</string>
 			<key>key</key>
 			<string>MSHFSpotifyEnableFFT</string>
 			<key>alternateColors</key>
@@ -316,30 +313,14 @@
 			<key>defaults</key>
 			<string>com.ryannair05.mitsuhaforever</string>
 			<key>label</key>
-			<string>Ignore ColorFlow</string>
+			<string>Color based on Artwork</string>
 			<key>key</key>
-			<string>MSHFSpotifyIgnoreColorFlow</string>
+			<string>MSHFColorFlowSpotifyEnabled</string>
 			<key>alternateColors</key>
 			<true/>
 			<key>PostNotification</key>
 			<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<true/>
-			<key>defaults</key>
-			<string>com.ryannair05.mitsuhaforever</string>
-			<key>label</key>
-			<string>Cover art bug fix</string>
-			<key>key</key>
-			<string>MSHFSpotifyEnableCoverArtBugFix</string>
-			<key>alternateColors</key>
-			<true/>
-			<key>PostNotification</key>
-			<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
-		</dict>
+		</dict>-->
 		<!-- Music -->
 		<!-- Apps -->
 		<dict>
@@ -782,16 +763,6 @@ Mitsuha Forever updated by Ryan Nair
 Mitsuha Forever Rootless updated by zSaaiq</string>
 			<key>isStaticText</key>
 			<true/>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Configuration</string>
-			<key>isStaticText</key>
-			<true/>
-            <key>id</key>
-            <string>apps</string>
 		</dict>
 		<dict>
 			<key>cell</key>
