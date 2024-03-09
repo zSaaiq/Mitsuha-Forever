@@ -15,11 +15,11 @@ static MSHFConfig *SBLSconfig = NULL;
 
     UIColor *backgroundColor = [colorInfo.primaryColor colorWithAlphaComponent:0.5];
 
-    if (SBconfig.colorMode == 0) {
+    if (SBconfig.colorMode == 0 || SBconfig.colorMode == 1) {
         [[SBconfig view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
     }
 
-    if (SBLSconfig.colorMode == 0) {
+    if (SBLSconfig.colorMode == 0 || SBLSconfig.colorMode == 1) {
         [[SBLSconfig view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
     }
 }
@@ -206,11 +206,11 @@ static void loadPrefs() {
             [[NSNotificationCenter defaultCenter] addObserverForName:@"OrionMusicArtworkChanged" object:nil queue:nil usingBlock:^(NSNotification *n){
                 UIColor *backgroundColor = [[[%c(OrionColorizer) sharedInstance] primaryColor] colorWithAlphaComponent:0.5];
 
-                if (SBconfig.colorMode == 0) {
+                if (SBconfig.colorMode == 0 || SBconfig.colorMode == 1) {
                     [[SBconfig view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
                 }
 
-                if (SBLSconfig.colorMode == 0) {
+                if (SBLSconfig.colorMode == 0 || SBLSconfig.colorMode == 1) {
                     [[SBLSconfig view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
                 }
 

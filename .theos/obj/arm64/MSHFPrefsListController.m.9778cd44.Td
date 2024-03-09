@@ -1,19 +1,17 @@
-/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64e/MSHFAppPrefsListController.m.deada529.o: \
-  MSHFAppPrefsListController.m /Users/kevinmuller/theos/Prefix.pch \
-  /Users/kevinmuller/theos/vendor/include/rootless.h \
-  /Users/kevinmuller/theos/vendor/include/libroot/module.modulemap \
+/Users/kevinmuller/Desktop/Mitsuha-Forever/.theos/obj/arm64/MSHFPrefsListController.m.9778cd44.o: \
+  MSHFPrefsListController.m /Users/kevinmuller/theos/Prefix.pch \
+  MSHFPrefsListController.h MSHFAppPrefsListController.h \
+  /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
+  /Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h \
   /Users/kevinmuller/theos/vendor/include/libhooker/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/AppList/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/rocketbootstrap/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/Flipswitch/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/libundirect/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/libactivator/module.modulemap \
+  /Users/kevinmuller/theos/vendor/include/libroot/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/libprefs/module.modulemap \
   /Users/kevinmuller/theos/vendor/include/Preferences/module.modulemap \
-  /Users/kevinmuller/theos/vendor/include/libroot/libroot.h \
-  MSHFAppPrefsListController.h \
-  /Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h \
-  /Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFAudioSourceASS.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFAudioSource.h \
   /Users/kevinmuller/theos/include/MitsuhaForever/MSHFAudioDelegate.h \
@@ -39,13 +37,20 @@
   /Users/kevinmuller/theos/vendor/include/Preferences/PSTableCell.h \
   /Users/kevinmuller/theos/vendor/include/Preferences/PSSpecifier.h \
   /Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h \
-  /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h
+  /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h \
+  /Users/kevinmuller/theos/include/MitsuhaForever/MSHFUtils.h \
+  /Users/kevinmuller/theos/vendor/include/rootless.h \
+  /Users/kevinmuller/theos/vendor/include/libroot/libroot.h
 
 /Users/kevinmuller/theos/Prefix.pch:
 
-/Users/kevinmuller/theos/vendor/include/rootless.h:
+MSHFPrefsListController.h:
 
-/Users/kevinmuller/theos/vendor/include/libroot/module.modulemap:
+MSHFAppPrefsListController.h:
+
+/Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h:
+
+/Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h:
 
 /Users/kevinmuller/theos/vendor/include/libhooker/module.modulemap:
 
@@ -59,17 +64,11 @@
 
 /Users/kevinmuller/theos/vendor/include/libactivator/module.modulemap:
 
+/Users/kevinmuller/theos/vendor/include/libroot/module.modulemap:
+
 /Users/kevinmuller/theos/vendor/include/libprefs/module.modulemap:
 
 /Users/kevinmuller/theos/vendor/include/Preferences/module.modulemap:
-
-/Users/kevinmuller/theos/vendor/include/libroot/libroot.h:
-
-MSHFAppPrefsListController.h:
-
-/Users/kevinmuller/theos/include/MitsuhaForever/MSHFConfig.h:
-
-/Users/kevinmuller/theos/include/MitsuhaForever/MSHFView.h:
 
 /Users/kevinmuller/theos/include/MitsuhaForever/MSHFAudioSourceASS.h:
 
@@ -122,3 +121,9 @@ MSHFAppPrefsListController.h:
 /Users/kevinmuller/theos/vendor/include/Preferences/NSArray+PreferencesAddition.h:
 
 /Users/kevinmuller/theos/vendor/include/Preferences/Preferences.h:
+
+/Users/kevinmuller/theos/include/MitsuhaForever/MSHFUtils.h:
+
+/Users/kevinmuller/theos/vendor/include/rootless.h:
+
+/Users/kevinmuller/theos/vendor/include/libroot/libroot.h:

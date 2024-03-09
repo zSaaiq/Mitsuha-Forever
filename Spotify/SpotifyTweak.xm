@@ -17,7 +17,6 @@ MSHFConfig *config = NULL;
 %end
 
 %hook SPTVideoDisplayView
-
 - (void)refreshVideoRect {
     %orig;
 
@@ -52,6 +51,7 @@ MSHFConfig *config = NULL;
     [self.mshfview.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     [self.mshfview.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     [self.mshfview.heightAnchor constraintEqualToConstant:self.mshfview.frame.size.height].active = YES;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -94,13 +94,11 @@ MSHFConfig *config = NULL;
 
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"Spotify"];
-
     if(config.enabled){
         config.waveOffsetOffset = 662;
         if ([%c(CFWPrefsManager) class] && MSHookIvar<BOOL>([%c(CFWPrefsManager) sharedInstance], "_spotifyEnabled") && !config.ignoreColorFlow) {
             MSHFColorFlowSpotifyEnabled = YES;
         }
         %init(MitsuhaVisuals);
-
     }
 }

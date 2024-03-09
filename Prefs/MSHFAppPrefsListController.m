@@ -1,5 +1,6 @@
-#import "MSHFAppPrefsListController.h"
 #import <rootless.h>
+#import "MSHFAppPrefsListController.h"
+
 @implementation MSHFAppPrefsListController
 
 - (NSArray *)specifiers {
@@ -9,78 +10,38 @@
 - (void)setSpecifier:(PSSpecifier *)specifier {
     [super setSpecifier:specifier];
 
-    // Extract app name from specifier
     self.appName = [specifier propertyForKey:@"MSHFApp"];
     if (!self.appName) return;
-
-    // Get title from specifier
+    NSString *prefix = [@"MSHF" stringByAppendingString:self.appName];
     NSString *title = [specifier name];
+    self.savedSpecifiers = [[NSMutableDictionary alloc] init];
 
-    // Initialize dictionary to store specifiers
-    self.savedSpecifiers = [NSMutableDictionary dictionary];
+    _specifiers = [self loadSpecifiersFromPlistName:@"App" target:self];
 
-    // Load specifiers from ControlCenter.plist
-    NSArray *controlCenterSpecifiers = [self loadSpecifiersFromPlistName:@"ControlCenter" target:self];
-    if (controlCenterSpecifiers) {
-        _specifiers = [NSMutableArray arrayWithArray:controlCenterSpecifiers];
+    for (PSSpecifier *specifier in _specifiers) {
+        NSString *key = [specifier propertyForKey:@"key"];
+        if (key) {
+            [specifier setProperty:[prefix stringByAppendingString:key] forKey:@"key"];
+        }
+
+        if ([specifier.name isEqualToString:@"%APP_NAME%"]) {
+            specifier.name = title;
+        }
+
+        else if ([specifier propertyForKey:@"id"]) {
+			[self.savedSpecifiers setObject:specifier forKey:[specifier propertyForKey:@"id"]];
+		}
     }
 
-    // Load specifiers from HomeScreen.plist
-    NSArray *homeScreenSpecifiers = [self loadSpecifiersFromPlistName:@"HomeScreen" target:self];
-    if (homeScreenSpecifiers) {
-        if (!_specifiers) {
-            _specifiers = [NSMutableArray arrayWithArray:homeScreenSpecifiers];
-        } else {
-            [_specifiers addObjectsFromArray:homeScreenSpecifiers];
+    NSArray *extra = [self loadSpecifiersFromPlistName:[NSString stringWithFormat:@"Apps/%@", self.appName] target:self];
+    if (extra) {
+        for (PSSpecifier *specifier in extra) {
+            [self insertSpecifier:specifier afterSpecifierID:@"otherSettings"];
         }
     }
 
-    // Load specifiers from LockScreen.plist
-    NSArray *lockScreenSpecifiers = [self loadSpecifiersFromPlistName:@"LockScreen" target:self];
-    if (lockScreenSpecifiers) {
-        if (!_specifiers) {
-            _specifiers = [NSMutableArray arrayWithArray:lockScreenSpecifiers];
-        } else {
-            [_specifiers addObjectsFromArray:lockScreenSpecifiers];
-        }
-    }
-
-    // Load specifiers from Music.plist
-    NSArray *musicSpecifiers = [self loadSpecifiersFromPlistName:@"Music" target:self];
-    if (musicSpecifiers) {
-        if (!_specifiers) {
-            _specifiers = [NSMutableArray arrayWithArray:musicSpecifiers];
-        } else {
-            [_specifiers addObjectsFromArray:musicSpecifiers];
-        }
-    }
-
-    // Load specifiers from Spotify.plist
-    NSArray *spotifySpecifiers = [self loadSpecifiersFromPlistName:@"Spotify" target:self];
-    if (spotifySpecifiers) {
-        if (!_specifiers) {
-            _specifiers = [NSMutableArray arrayWithArray:spotifySpecifiers];
-        } else {
-            [_specifiers addObjectsFromArray:spotifySpecifiers];
-        }
-    }
-
-    // Load specifiers from Springboard.plist
-    NSArray *springboardSpecifiers = [self loadSpecifiersFromPlistName:@"Springboard" target:self];
-    if (springboardSpecifiers) {
-        if (!_specifiers) {
-            _specifiers = [NSMutableArray arrayWithArray:springboardSpecifiers];
-        } else {
-            [_specifiers addObjectsFromArray:springboardSpecifiers];
-        }
-    }
-
-    // Set title
     [self setTitle:title];
 }
-
-
-
 
 -(void)removeBarText:(bool)animated {
     [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"BarText"]] animated:animated];
@@ -111,30 +72,41 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+	[super viewDidAppear:animated];
     self.table.separatorColor = [UIColor colorWithWhite:0 alpha:0];
 
-    UIWindowScene *keyWindowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] allObjects].firstObject;
-    UIWindow *keyWindow = keyWindowScene.windows.firstObject;
+    UIWindow *keyWindow = nil;
+
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                keyWindow = windowScene.windows.firstObject;
+                break;
+            }
+        }
+    } else {
+        keyWindow = [[[[UIApplication sharedApplication] delegate] window] rootViewController].view.window;
+    }
+
+
 
     if ([keyWindow respondsToSelector:@selector(setTintColor:)]) {
         keyWindow.tintColor = [UIColor colorWithRed:238.0f / 255.0f
                                                 green:100.0f / 255.0f
                                                 blue:92.0f / 255.0f
                                                 alpha:1];
-    }
+	}
 
     [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = [UIColor colorWithRed:238.0f / 255.0f
-                                                                                                        green:100.0f / 255.0f
-                                                                                                         blue:92.0f / 255.0f
-                                                                                                        alpha:1];
+                                            green:100.0f / 255.0f
+                                            blue:92.0f / 255.0f
+                                            alpha:1];
 
 
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+	if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+		self.edgesForExtendedLayout = UIRectEdgeNone;
+	}
 }
-
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
   NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
@@ -145,62 +117,60 @@
 }
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
-    NSString *defaultsKey = specifier.properties[@"defaults"];
-    NSString *key = specifier.properties[@"key"];
 
-    if (!defaultsKey || !key) {
-        NSLog(@"Missing defaults key or specifier key.");
-        return;
-    }
+    NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
+    NSMutableDictionary *settings = [NSMutableDictionary dictionary];
+    [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
-    NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", defaultsKey];
-    NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfFile:path];
-
-    if (!settings) {
-        settings = [NSMutableDictionary dictionary];
-    }
-
-    [settings setObject:value forKey:key];
+    [settings setObject:value forKey:specifier.properties[@"key"]];
     [settings writeToFile:path atomically:YES];
 
-    NSString *notificationName = specifier.properties[@"PostNotification"];
+    CFStringRef notificationName = (__bridge CFStringRef) specifier.properties[@"PostNotification"];
     if (notificationName) {
-        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (__bridge CFStringRef)notificationName, NULL, NULL, YES);
+        // [[NSNotificationCenter defaultCenter] postNotificationName:@"com.ryannair05.mitsuhaforever/ReloadPrefs" object:nil];
+        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), notificationName, NULL, NULL, YES);
     }
 
-    NSString *specifierKey = [specifier propertyForKey:@"key"];
+    NSString const *key = [specifier propertyForKey:@"key"];
 
-    if ([specifierKey containsString:@"Style"]) {
-        NSInteger integerValue = [value integerValue];
+    if ([key containsString:@"Style"]){
+        if ([value integerValue] == 1) {
+            if (![self containsSpecifier:self.savedSpecifiers[@"BarText"]]) {
 
-        if (integerValue == 1) {
-            [self insertSpecifier:self.savedSpecifiers[@"BarText"] afterSpecifierID:@"NumberOfPoints" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"BarSpacingText"] afterSpecifierID:@"BarText" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"BarSpacing"] afterSpecifierID:@"BarSpacingText" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"BarRadiusText"] afterSpecifierID:@"BarSpacing" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"BarRadius"] afterSpecifierID:@"BarRadiusText" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"BarText"]] afterSpecifierID:@"NumberOfPoints" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"BarSpacingText"]] afterSpecifierID:@"BarText" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"BarSpacing"]] afterSpecifierID:@"BarSpacingText" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"BarRadiusText"]] afterSpecifierID:@"BarSpacing" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"BarRadius"]] afterSpecifierID:@"BarRadiusText" animated:YES];
 
-            if ([self containsSpecifier:self.savedSpecifiers[@"LineText"]]) {
-                [self removeLineText:YES];
-            }
-        } else if (integerValue == 2) {
-            if ([self containsSpecifier:self.savedSpecifiers[@"BarText"]]) {
-                [self removeBarText:YES];
-            }
-
-            [self insertSpecifier:self.savedSpecifiers[@"LineText"] afterSpecifierID:@"NumberOfPoints" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"LineThicknessText"] afterSpecifierID:@"LineText" animated:YES];
-            [self insertSpecifier:self.savedSpecifiers[@"LineThickness"] afterSpecifierID:@"LineThicknessText" animated:YES];
-        } else {
-            if ([self containsSpecifier:self.savedSpecifiers[@"BarText"]]) {
-                [self removeBarText:YES];
-            } else if ([self containsSpecifier:self.savedSpecifiers[@"LineText"]]) {
-                [self removeLineText:YES];
+                if ([self containsSpecifier:self.savedSpecifiers[@"LineText"]]) {
+                    [self removeLineText:YES];
+                }
             }
         }
-    }
-}
+        else if ([value integerValue] == 2) {
 
+            if (![self containsSpecifier:self.savedSpecifiers[@"LineText"]]) {
+
+                if ([self containsSpecifier:self.savedSpecifiers[@"BarText"]]) {
+                    [self removeBarText:YES];
+                }
+
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"LineText"]] afterSpecifierID:@"NumberOfPoints" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"LineThicknessText"]] afterSpecifierID:@"LineText" animated:YES];
+                [self insertContiguousSpecifiers:@[self.savedSpecifiers[@"LineThickness"]] afterSpecifierID:@"LineThicknessText" animated:YES];
+
+            }
+        }
+        else if ([self containsSpecifier:self.savedSpecifiers[@"BarText"]]) {
+            [self removeBarText:YES];
+        }
+        else if ([self containsSpecifier:self.savedSpecifiers[@"LineText"]]) {
+            [self removeLineText:YES];
+        }
+    }
+
+}
 
 - (bool)shouldReloadSpecifiersOnResume {
     return NO;

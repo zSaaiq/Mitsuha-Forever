@@ -74,9 +74,7 @@ static MSHFConfig *mshConfig;
 %end
 
 %ctor{
-
     mshConfig = [MSHFConfig loadConfigForApplication:@"ControlCenter"];
-    
     if (mshConfig && mshConfig.enabled) {
         %init(SBMediaHook);
         %init(ControlCenter);

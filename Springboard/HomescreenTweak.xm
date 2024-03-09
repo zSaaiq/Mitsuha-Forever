@@ -27,7 +27,7 @@ static MSHFConfig *mshConfig;
     mshConfig.waveOffsetOffset = self.view.bounds.size.height - 200;
     if (![mshConfig view]) [mshConfig initializeViewWithFrame:self.view.bounds];
     self.mshfView = [mshConfig view];
-    
+
     [[self view] insertSubview:self.mshfView atIndex:1];
 
     self.mshfView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -76,7 +76,7 @@ static void screenDisplayStatus(CFNotificationCenterRef center, void* o, CFStrin
     mshConfig = [MSHFConfig loadConfigForApplication:@"HomeScreen"];
     if(mshConfig.enabled){
         CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)screenDisplayStatus, (CFStringRef)@"com.apple.iokit.hid.displayStatus", NULL, (CFNotificationSuspensionBehavior)kNilOptions);
-        
+
         %init;
         %init(SBMediaHook);
     }
