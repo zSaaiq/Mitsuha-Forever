@@ -9,9 +9,9 @@ Sushi_PRIVATE_FRAMEWORKS = Preferences
 
 include $(THEOS)/makefiles/common.mk
 
-SUBPROJECTS += ASSWatchdog Prefs Spotify Springboard
+SUBPROJECTS += ASSWatchdog Prefs Spotify Springboard YTMusic
 
-INSTALL_TARGET_PROCESSES = SpringBoard Spotify Preferences
+INSTALL_TARGET_PROCESSES = SpringBoard Spotify Preferences YTMusic
 
 include $(THEOS_MAKE_PATH)/aggregate.mk
 internal-stage::

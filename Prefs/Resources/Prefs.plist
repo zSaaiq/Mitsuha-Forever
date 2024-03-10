@@ -440,11 +440,13 @@
 					<integer>0</integer>
 					<integer>1</integer>
 					<integer>2</integer>
+					<integer>3</integer>
 				</array>
 				<key>validTitles</key>
 				<array>
 					<string>Dynamic</string>
-					<string>Siri</string>
+					<string>Siri + Dynamic</string>
+					<string>Siri + Static</string>
 					<string>Custom</string>
 				</array>
 				<key>alignment</key>
