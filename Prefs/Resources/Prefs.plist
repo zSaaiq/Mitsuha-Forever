@@ -4,6 +4,50 @@
 	<dict>
 		<key>items</key>
 		<array>
+			<dict>
+				<key>cell</key>
+				<string>PSGroupCell</string>
+				<key>label</key>
+				<string>YTMusic Settings</string>
+				<key>isStaticText</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false/>
+				<key>defaults</key>
+				<string>com.ryannair05.mitsuhaforever</string>
+				<key>label</key>
+				<string>YTMusic Enabled</string>
+				<key>key</key>
+				<string>MSHFYTMusicEnabled</string>
+				<key>alternateColors</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSGroupCell</string>
+				<key>label</key>
+				<string>Spotify Settings</string>
+				<key>isStaticText</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSwitchCell</string>
+				<key>default</key>
+				<false/>
+				<key>defaults</key>
+				<string>com.ryannair05.mitsuhaforever</string>
+				<key>label</key>
+				<string>Spotify Enbaled</string>
+				<key>key</key>
+				<string>MSHFSpotifyEnabled</string>
+				<key>alternateColors</key>
+				<true/>
+			</dict>
 			<!-- LS Music Player-->
 			<dict>
 				<key>cell</key>
@@ -507,6 +551,58 @@
 				<true/>
 				<key>id</key>
 				<string>otherSettings</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSStaticTextCell</string>
+				<key>label</key>
+				<string>limiter</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSliderCell</string>
+				<key>label</key>
+				<string>limiter</string>
+				<key>defaults</key>
+				<string>com.ryannair05.mitsuhaforever</string>
+				<key>key</key>
+				<string>limiter</string>
+				<key>min</key>
+				<real>0</real>
+				<key>max</key>
+				<real>120</real>
+				<key>showValue</key>
+				<true/>
+				<key>isSegmented</key>
+				<false/>
+				<key>PostNotification</key>
+				<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSStaticTextCell</string>
+				<key>label</key>
+				<string>gain</string>
+			</dict>
+			<dict>
+				<key>cell</key>
+				<string>PSSliderCell</string>
+				<key>label</key>
+				<string>gain</string>
+				<key>defaults</key>
+				<string>com.ryannair05.mitsuhaforever</string>
+				<key>key</key>
+				<string>gain</string>
+				<key>min</key>
+				<real>0</real>
+				<key>max</key>
+				<real>100</real>
+				<key>showValue</key>
+				<true/>
+				<key>isSegmented</key>
+				<false/>
+				<key>PostNotification</key>
+				<string>com.ryannair05.mitsuhaforever/ReloadPrefs</string>
 			</dict>
 			<dict>
 				<key>cell</key>

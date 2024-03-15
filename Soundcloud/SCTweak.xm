@@ -53,7 +53,7 @@ WaveFormController *waveController;
     [config initializeViewWithFrame:CGRectMake(0, height + config.waveOffset, width, height)];
 
     self.mshfView = [config view];
-    [self.view insertSubview:self.mshfView atIndex:20];
+    [self.view insertSubview:self.mshfView atIndex:22];
 
 }
 
@@ -61,7 +61,7 @@ WaveFormController *waveController;
     NSLog(@"[Mitsuha]: viewWillAppear");
 
     %orig;
-    
+
     self.view.clipsToBounds = 1;
 
     [self.mshfView start];
@@ -74,7 +74,7 @@ WaveFormController *waveController;
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"SoundCloud"];
     config.waveOffsetOffset = -130;
-    
+
     if(config.enabled){
         %init(MitsuhaVisuals);
     }

@@ -8,12 +8,10 @@ bool MSHFColorFlowSpotifyEnabled = NO;
 MSHFConfig *config = NULL;
 
 %hook SPTNowPlayingCoverArtImageView
-
 -(void)setImage:(UIImage*)image {
     %orig;
     [config colorizeView:image];
 }
-
 %end
 
 %hook SPTVideoDisplayView
@@ -28,7 +26,6 @@ MSHFConfig *config = NULL;
     UIImage* image = [UIImage imageWithCGImage:[generator copyCGImageAtTime:CMTimeMake(0, 1) actualTime:nil error:nil]];
     if (image) [config colorizeView:image];
 }
-
 %end
 
 %hook SPTNowPlayingViewController

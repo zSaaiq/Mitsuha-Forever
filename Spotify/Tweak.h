@@ -15,13 +15,13 @@
 
 @end
 
-@interface SPTNowPlayingContentCell : UIView
-
-@property(retain, nonatomic) UIImage *cellContentRepresentation;
+@interface SPTNowPlayingCoverArtView : UIView
 
 @end
 
-@interface SPTNowPlayingCoverArtView : UIView
+@interface SPTNowPlayingContentCell : UIView
+
+@property(retain, nonatomic) UIImage *cellContentRepresentation;
 
 @end
 

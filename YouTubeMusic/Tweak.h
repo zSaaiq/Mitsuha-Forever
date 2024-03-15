@@ -15,7 +15,7 @@
 
 @end
 
-@interface YTMusicNowPlayingView : UIView
+@interface YTMContentView : UIView
 
 @property(retain, nonatomic) UIImage *cellContentRepresentation;
 
@@ -39,7 +39,7 @@
 
 @end
 
-@interface CFWYTMUsicStateManager : NSObject
+@interface CFWYouTubeMusicStateManager : NSObject
 
 + (id)sharedManager;
 
@@ -53,6 +53,11 @@
 
 @end
 
-@interface YTMusicNowPlayingViewController : UIViewController
+@interface YTMContentViewController : UIViewController
 @property (retain,nonatomic) MSHFView *mshfview;
+@end
+
+@interface YTMVideoOverlayView : UIView
+@property (nonatomic, strong, readwrite) AVPlayer *player;
+@property(nonatomic) _Bool playbackReady;
 @end
