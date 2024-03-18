@@ -9,25 +9,11 @@ MSHFConfig *config = NULL;
 
 %hook YTImageView
 
--(void)setImage:(UIImage*)image {
+-(void)setImage:(UIImage*)image animated:(BOOL)arg1{
     %orig;
     [config colorizeView:image];
 }
 
-%end
-
-%hook YTMVideoOverlayView
-- (void)loadView {
-    %orig;
-
-    AVPlayer *displayView = [self player];
-    AVAsset *asset = displayView.currentItem.asset;
-
-    AVAssetImageGenerator* generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
-    generator.appliesPreferredTrackTransform = YES;
-    UIImage* image = [UIImage imageWithCGImage:[generator copyCGImageAtTime:CMTimeMake(0, 1) actualTime:nil error:nil]];
-    if (image) [config colorizeView:image];
-}
 %end
 
 %hook YTMContentViewController
@@ -39,7 +25,7 @@ MSHFConfig *config = NULL;
     NSLog(@"[Mitsuha]: viewDidLoad");
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)watchViewControllerDidExpand:(id)arg1{
     %orig;
     [[config view] resetWaveLayers];
     if (![config view]) {
@@ -47,7 +33,7 @@ MSHFConfig *config = NULL;
         [config initializeViewWithFrame:frame];
         self.mshfview = [config view];
         [self.mshfview setUserInteractionEnabled:NO];
-        [self.view insertSubview:self.mshfview atIndex:3];
+        [self.view insertSubview:self.mshfview atIndex:6];
 
         self.mshfview.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
@@ -58,14 +44,10 @@ MSHFConfig *config = NULL;
         ]];
     }
     [[config view] start];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    %orig;
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height/2 + config.waveOffset);
     } completion:nil];
-    if (config.colorMode == 1) {
+    if (config.colorMode == 2) {
         [config colorizeView:nil];
     }
     else if(MSHFColorFlowYouTubeMusicEnabled){
@@ -75,7 +57,7 @@ MSHFConfig *config = NULL;
     }
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+-(void)watchViewControllerDidCollapse:(id)arg2{
     %orig;
     [[config view] stop];
     [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -89,7 +71,7 @@ MSHFConfig *config = NULL;
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"YouTubeMusic"];
     if(config.enabled){
-        config.waveOffsetOffset = 662;
+        config.waveOffsetOffset = 710;
         MSHFColorFlowYouTubeMusicEnabled = YES;
         %init(MitsuhaVisuals);
     }

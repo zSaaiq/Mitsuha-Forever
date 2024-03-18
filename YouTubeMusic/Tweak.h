@@ -21,9 +21,9 @@
 
 @end
 
-@interface YTMNowPlayingModel : NSObject
-- (void)player:(id)arg1 stateDidChange:(id)arg2 fromState:(id)arg3;
-- (void)updateWithPlayerState:(id)arg1;
+@interface YTMPlaybackPublishController : UIViewController
+- (void)playerDidChangeToState:(long long)arg1 playbackControllerState:(int)arg2 navigationEndpoint:(id)arg3;
+- (void)updateMusicPlayerEntityForPlayerState:(long long)arg1;
 -(void)applyColorChange;
 
 @end
@@ -55,9 +55,4 @@
 
 @interface YTMContentViewController : UIViewController
 @property (retain,nonatomic) MSHFView *mshfview;
-@end
-
-@interface YTMVideoOverlayView : UIView
-@property (nonatomic, strong, readwrite) AVPlayer *player;
-@property(nonatomic) _Bool playbackReady;
 @end
