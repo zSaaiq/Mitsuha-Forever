@@ -65,11 +65,11 @@ MSHFConfig *config = NULL;
     } completion:nil];
 
     [[config view] resetWaveLayers];
-
-    if (config.colorMode == 1) {
+    //if Siri + static colorMode
+    if (config.colorMode == 2) {
         [config colorizeView:nil];
     }
-    //  Copied from NowPlayingImpl
+    //  get the Spotify Cover Art image and Colorize the wave backgroundColor
     else if(MSHFColorFlowSpotifyEnabled){
         CFWSpotifyStateManager *stateManager = [%c(CFWSpotifyStateManager) sharedManager];
         UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
@@ -88,14 +88,11 @@ MSHFConfig *config = NULL;
 
 %end
 %end
-
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"Spotify"];
     if(config.enabled){
         config.waveOffsetOffset = 662;
-        if ([%c(CFWPrefsManager) class] && MSHookIvar<BOOL>([%c(CFWPrefsManager) sharedInstance], "_spotifyEnabled") && !config.ignoreColorFlow) {
-            MSHFColorFlowSpotifyEnabled = YES;
-        }
+        MSHFColorFlowSpotifyEnabled = YES;
         %init(MitsuhaVisuals);
     }
 }

@@ -24,7 +24,7 @@
             [specifier setProperty:[prefix stringByAppendingString:key] forKey:@"key"];
         }
 
-        if ([specifier.name isEqualToString:@"YTMusic"]) {
+        if ([specifier.name isEqualToString:@"%APP_NAME%"]) {
             specifier.name = title;
         }
 

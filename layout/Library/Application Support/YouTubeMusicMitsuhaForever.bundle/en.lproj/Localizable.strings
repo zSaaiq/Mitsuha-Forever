@@ -1,0 +1,26 @@
+"SETTINGS" = "Settings";
+"ENABLED" = "Enable YTMusicMitsuha";
+"RESTART_FOOTER" = "Restart the app to apply changes";
+
+"MITSUHA_SETTINGS" = "Mitsuha YouTubeMusic Options";
+"MITSUHAFOREVER_COLORFLOWENABLED" = "enable colorflow";
+"MITSUHAFOREVER_COLORFLOWENABLED_DESC" = "Activates colorflow on the wave.";
+"MITSUHAFOREVER_MINIMALWAVEHIGH" = "Minimum wave height";
+"MITSUHAFOREVER_MINIMALWAVEHIGH_DESC" = "Shows the wave lower.";
+
+"APPLY" = "Apply";
+"APPLY_DESC" = "Closes the app to apply changes";
+
+"LINKS" = "Links";
+"TWITTER" = "Follow %@ on Twitter";
+"TWITTER_DESC" = "Follow me for updates";
+
+"CLOSE" = "Close";
+"WARNING" = "Warning";
+"LOGIN_INFO" = "App restart required after successful signing into Google account";
+"APPLY_MESSAGE" = "This action will close YouTube Music to apply changes. Are you sure?";
+"CANCEL" = "Cancel";
+"YES" = "Yes";
+"REGIONAL_RESTRICTION" = "Looks like YouTube Music restricted in your country.\n\n Please use VPN to get access to YouTube Music.";
+
+"WORKAROUND_REMINDER" = "If you are in a country where premium features are not available, it is advisable to activate the forced premium activation option.\n\nYou can manage this option later in YTMusicUltimate → %@ → %@.\n\nDo you want to enable %@ option now?";

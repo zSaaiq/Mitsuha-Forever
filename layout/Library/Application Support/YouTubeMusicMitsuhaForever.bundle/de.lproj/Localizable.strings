@@ -1,0 +1,26 @@
+"SETTINGS" = "Einstellungen";
+"ENABLED" = "YTMusicMitsuha Aktivieren";
+"RESTART_FOOTER" = "Du musst die App neustarten, um die änderungen anzuwenden.";
+
+"MITSUHA_SETTINGS" = "Mitsuha YouTubeMusic Optionen";
+"MITSUHAFOREVER_COLORFLOWENABLED" = "Colorflow aktivieren";
+"MITSUHAFOREVER_COLORFLOWENABLED_DESC" = "Aktiviert, das einfärben der Welle.";
+"MITSUHAFOREVER_MINIMALWAVEHIGH" = "Minimale Wellen höhe";
+"MITSUHAFOREVER_MINIMALWAVEHIGH_DESC" = "Zeigt die Welle niedriger an.";
+
+"APPLY" = "Anwenden";
+"APPLY_DESC" = "Schließt die App, um Änderungen zu übernehmen";
+
+"LINKS" = "Links";
+"TWITTER" = "Folge %@ auf Twitter";
+"TWITTER_DESC" = "Folge mir für Updates";
+
+"CLOSE" = "Schließen";
+"WARNING" = "Warnung";
+"LOGIN_INFO" = "Nach erfolgreicher Anmeldung beim Google-Konto ist ein Neustart der App erforderlich";
+"APPLY_MESSAGE" = "Durch diese Aktion wird YouTube Music geschlossen, um die Änderungen zu übernehmen. Bist du sicher?";
+"CANCEL" = "Abbrechen";
+"YES" = "Ja";
+"REGIONAL_RESTRICTION" = "Anscheinend ist YouTube Music in Ihrem Land eingeschränkt.\n\nBitte verwenden Sie VPN, um auf YouTube Music zuzugreifen.";
+
+"WORKAROUND_REMINDER" = "Wenn Sie sich in einem Land befinden, in dem Premium-Funktionen nicht verfügbar sind, empfiehlt es sich, die Option zur erzwungenen Premium-Aktivierung zu aktivieren.\n\nSie können diese Option später in YTMusicUltimate → %@ → %@ verwalten.\n\nMöchten Sie sie aktivieren? %@ Option jetzt?";
