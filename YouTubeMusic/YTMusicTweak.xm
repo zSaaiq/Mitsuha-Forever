@@ -31,7 +31,6 @@ MSHFConfig *config = NULL;
     %orig;
     NSLog(@"[Mitsuha]: viewDidAppear");
     //Configure WaveView until
-    [[config view] resetWaveLayers];
     if (![config view]) {
         CGRect frame = CGRectMake(0, config.waveOffset, self.view.bounds.size.width, self.view.bounds.size.height);
         [config initializeViewWithFrame:frame];
@@ -47,9 +46,7 @@ MSHFConfig *config = NULL;
             [self.mshfview.heightAnchor constraintEqualToConstant:self.mshfview.frame.size.height]
         ]];
     }
-    if (config.colorMode == 2) {
-        [config colorizeView:nil];
-    }else if (MSHFColorFlowYouTubeMusicEnabled){
+    if (MSHFColorFlowYouTubeMusicEnabled){
     CFWYouTubeMusicStateManager *stateManager = [%c(CFWYouTubeMusicStateManager) sharedManager];
     UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
     [[config view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
@@ -63,6 +60,7 @@ MSHFConfig *config = NULL;
     [UIView animateWithDuration:0.30 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height/2 + config.waveOffset);
     } completion:nil];
+    [[config view] resetWaveLayers];
 }
 //Stop the WaveView when dismissed
 -(void)watchViewControllerDidCollapse:(id)arg2{
@@ -78,11 +76,16 @@ MSHFConfig *config = NULL;
 %ctor{
     config = [MSHFConfig loadConfigForApplication:@"YouTubeMusic"];
     if (config.enabled){
+      if (config.colorMode == 2) {
+          [config colorizeView:nil];
+      } else if (config.colorMode == 3) {
+          [config colorizeView:nil];
+      }
       if (YTMU(@"YouTubeMusicMitsuhaIsEnabled")){
         %init(MitsuhaVisuals);
       }
       if (YTMU(@"colorflowenabled")){
-        MSHFColorFlowYouTubeMusicEnabled = true;
+        MSHFColorFlowYouTubeMusicEnabled = YES;
       }
       if (YTMU(@"minimalwavehigh")){
         config.waveOffsetOffset = 860;

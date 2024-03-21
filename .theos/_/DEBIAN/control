@@ -6,9 +6,9 @@ Description: Universal audio visualizer for iOS currently Music Support is  remo
 Maintainer: zSaaiq
 Author: zSaaiq, Ryan Nair, ConorTheDev, and Nepeta
 Section: Tweaks
-Icon: Prefs/Resources/icon@3x.png
+Icon: file:///var/jb/Library/PreferenceBundles/MitsuhaForeverPrefs.bundle/icon_83.5@2x.png
 Depiction: https://zsaaiq.github.io/jailbreakrepo/repo/depictions/com.ryannair05.mitsuhaforever/index.html
 SileoDepiction: https://zsaaiq.github.io/jailbreakrepo/repo/depictions/com.ryannair05.mitsuhaforever/sileo.json
 Architecture: iphoneos-arm64
-Version: 2.2.2
-Installed-Size: 1096
+Version: 2.2.3
+Installed-Size: 1092

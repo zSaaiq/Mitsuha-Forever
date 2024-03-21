@@ -65,8 +65,9 @@ MSHFConfig *config = NULL;
     } completion:nil];
 
     [[config view] resetWaveLayers];
-    //if Siri + static colorMode
     if (config.colorMode == 2) {
+        [config colorizeView:nil];
+    } else if (config.colorMode == 3) {
         [config colorizeView:nil];
     }
     //  get the Spotify Cover Art image and Colorize the wave backgroundColor
