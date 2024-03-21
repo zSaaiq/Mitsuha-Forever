@@ -47,13 +47,13 @@ MSHFConfig *config = NULL;
             [self.mshfview.heightAnchor constraintEqualToConstant:self.mshfview.frame.size.height]
         ]];
     }
-    if(MSHFColorFlowYouTubeMusicEnabled && config.colorMode != 2){
-        CFWYouTubeMusicStateManager *stateManager = [%c(CFWYouTubeMusicStateManager) sharedManager];
-        UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
-        [[config view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
-    }else{
-      [config colorizeView:nil];
-    }
+    if (config.colorMode == 2) {
+        [config colorizeView:nil];
+    }else if (MSHFColorFlowYouTubeMusicEnabled){
+    CFWYouTubeMusicStateManager *stateManager = [%c(CFWYouTubeMusicStateManager) sharedManager];
+    UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
+    [[config view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
+  }
 }
 
 -(void)watchViewControllerDidExpand:(id)arg1{
