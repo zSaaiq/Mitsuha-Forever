@@ -7,8 +7,8 @@ Maintainer: zSaaiq
 Author: zSaaiq, Ryan Nair, ConorTheDev, and Nepeta
 Section: Tweaks
 Icon: https://zsaaiq.github.io/jailbreakrepo/images/MitsuhaForever.png
-Depiction: https://zsaaiq.github.io/jailbreakrepo/repo/depictions/com.ryannair05.mitsuhaforever/index.html
-SileoDepiction: https://zsaaiq.github.io/jailbreakrepo/repo/depictions/com.ryannair05.mitsuhaforever/sileo.json
+Depiction: https://zsaaiq.github.io/jailbreakrepo/repo/depictions/mitsuhaforever.html
+SileoDepiction: https://zsaaiq.github.io/jailbreakrepo/repo/sileodepictions/mitsuhaforever.json
 Architecture: iphoneos-arm64
 Version: 2.2.3
 Installed-Size: 1092

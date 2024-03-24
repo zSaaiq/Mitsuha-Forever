@@ -4,8 +4,9 @@ PREFIX = $(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
 THEOS_PACKAGE_SCHEME=rootless
 export ADDITIONAL_CFLAGS = -DTHEOS_LEAN_AND_MEAN -fobjc-arc -O3
 export TARGET = iphone:15.6
-Sushi_INSTALL_PATH = /Library/PreferenceBundles
-Sushi_PRIVATE_FRAMEWORKS = Preferences
+ARCHS = arm64 arm64e
+MitsuhaForever_INSTALL_PATH = /Library/PreferenceBundles
+MitsuhaForever_PRIVATE_FRAMEWORKS = Preferences
 
 include $(THEOS)/makefiles/common.mk
 
