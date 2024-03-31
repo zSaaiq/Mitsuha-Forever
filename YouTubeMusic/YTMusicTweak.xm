@@ -1,6 +1,6 @@
 #import "Tweak.h"
 #import <Foundation/Foundation.h>
-#define CFWBackgroundViewTagNumber 796541
+#define CFWBackgroundViewTagNumber 896542
 
 static BOOL YTMU(NSString *key) {
     NSDictionary *YouTubeMusicMitsuhaForeverDict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"YouTubeMusicMitsuhaForever"];
@@ -9,6 +9,8 @@ static BOOL YTMU(NSString *key) {
 
 bool MSHFColorFlowYouTubeMusicEnabled = NO;
 bool MSHFYouTubeMusicMinimalWaveHighEnabled = NO;
+bool MSHFYouTubeMusicDontHideMiniWave = NO;
+bool MSHFYouTubeMusicEnabledMiniWave = NO;
 
 %group MitsuhaVisuals
 
@@ -38,6 +40,7 @@ MSHFConfig *config = NULL;
         [self.mshfview setUserInteractionEnabled:NO];
         [self.view insertSubview:self.mshfview atIndex:6];
 
+
         self.mshfview.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
             [self.mshfview.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
@@ -45,30 +48,36 @@ MSHFConfig *config = NULL;
             [self.mshfview.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
             [self.mshfview.heightAnchor constraintEqualToConstant:self.mshfview.frame.size.height]
         ]];
+    } else if (MSHFColorFlowYouTubeMusicEnabled){
+      CFWYouTubeMusicStateManager *stateManager = [%c(CFWYouTubeMusicStateManager) sharedManager];
+      UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
+      [[config view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
     }
-    if (MSHFColorFlowYouTubeMusicEnabled){
-    CFWYouTubeMusicStateManager *stateManager = [%c(CFWYouTubeMusicStateManager) sharedManager];
-    UIColor *backgroundColor = [stateManager.mainColorInfo.backgroundColor colorWithAlphaComponent:0.5];
-    [[config view] updateWaveColor:backgroundColor subwaveColor:backgroundColor];
+    [[config view] resetWaveLayers];
+    if (MSHFYouTubeMusicEnabledMiniWave && MSHFYouTubeMusicDontHideMiniWave){
+      [[config view] start];
+    }
   }
-}
 
 -(void)watchViewControllerDidExpand:(id)arg1{
     %orig;
     //Show MitsuhaWave
-    [[config view] start];
+    if (!MSHFYouTubeMusicEnabledMiniWave){
+      [[config view] start];
+    }
     [UIView animateWithDuration:0.30 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height/2 + config.waveOffset);
     } completion:nil];
-    [[config view] resetWaveLayers];
 }
 //Stop the WaveView when dismissed
 -(void)watchViewControllerDidCollapse:(id)arg2{
     %orig;
-    [[config view] stop];
-    [UIView animateWithDuration:0.01 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height + config.waveOffset);
-    } completion:nil];
+    if (!MSHFYouTubeMusicDontHideMiniWave){
+      [[config view] stop];
+      [UIView animateWithDuration:0.01 delay:0.0 usingSpringWithDamping:3.5 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+          [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height + config.waveOffset);
+      } completion:nil];
+    }
 }
 
 %end
@@ -88,9 +97,13 @@ MSHFConfig *config = NULL;
         MSHFColorFlowYouTubeMusicEnabled = YES;
       }
       if (YTMU(@"minimalwavehigh")){
+        MSHFYouTubeMusicEnabledMiniWave = YES;
         config.waveOffsetOffset = 860;
       }else{
         config.waveOffsetOffset = 710;
+      }
+      if (YTMU(@"minimalwavehigh") && YTMU(@"minimalwavehighnohiding")){
+        MSHFYouTubeMusicDontHideMiniWave = YES;
       }
     }
 }

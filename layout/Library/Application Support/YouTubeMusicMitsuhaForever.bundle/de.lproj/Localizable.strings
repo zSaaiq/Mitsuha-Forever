@@ -7,6 +7,8 @@
 "MITSUHAFOREVER_COLORFLOWENABLED_DESC" = "Aktiviert, das einfärben der Welle.";
 "MITSUHAFOREVER_MINIMALWAVEHIGH" = "Minimale Wellen höhe";
 "MITSUHAFOREVER_MINIMALWAVEHIGH_DESC" = "Zeigt die Welle niedriger an.";
+"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING" = "Mini Welle n. verstecken.";
+"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING_DESC" = "Die Minimale Welle wird nicht ausgeblendet, wenn der Player geschloßen wurde.";
 
 "APPLY" = "Anwenden";
 "APPLY_DESC" = "Schließt die App, um Änderungen zu übernehmen";

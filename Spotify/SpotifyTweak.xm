@@ -52,6 +52,7 @@ MSHFConfig *config = NULL;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [[config view] resetWaveLayers];
     [[config view] start];
     %orig;
 }
@@ -63,8 +64,6 @@ MSHFConfig *config = NULL;
         [config view].center = CGPointMake([config view].center.x, [config view].frame.size.height/2 + config.waveOffset);
 
     } completion:nil];
-
-    [[config view] resetWaveLayers];
     if (config.colorMode == 2) {
         [config colorizeView:nil];
     } else if (config.colorMode == 3) {

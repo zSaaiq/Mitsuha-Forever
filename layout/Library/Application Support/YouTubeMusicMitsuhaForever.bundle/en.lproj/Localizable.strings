@@ -7,6 +7,8 @@
 "MITSUHAFOREVER_COLORFLOWENABLED_DESC" = "Activates colorflow on the wave.";
 "MITSUHAFOREVER_MINIMALWAVEHIGH" = "Minimum wave height";
 "MITSUHAFOREVER_MINIMALWAVEHIGH_DESC" = "Shows the wave lower.";
+"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING" = "Don#t hide mini Wave";
+"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING_DESC" = "The Mini wave will not be hidden on Player collapse.";
 
 "APPLY" = "Apply";
 "APPLY_DESC" = "Closes the app to apply changes";

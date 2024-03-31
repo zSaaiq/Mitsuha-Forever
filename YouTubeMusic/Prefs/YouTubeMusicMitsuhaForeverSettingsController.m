@@ -77,8 +77,9 @@
     switch (section) {
         case 0:
             return 1;
+        //IF A TOGGLE IS ADDED INCREMENT THE RETUN
         case 1:
-            return 2;
+            return 3;
         case 2:
             return 1;
         default:
@@ -116,7 +117,8 @@
 
       NSArray *settingsData = @[
           @{@"title": LOC(@"MITSUHAFOREVER_COLORFLOWENABLED"), @"desc": LOC(@"MITSUHAFOREVER_COLORFLOWENABLED_DESC"), @"key": @"colorflowenabled"},
-          @{@"title": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGH"), @"desc": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGH_DESC"), @"key": @"minimalwavehigh"}
+          @{@"title": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGH"), @"desc": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGH_DESC"), @"key": @"minimalwavehigh"},
+          @{@"title": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING"), @"desc": LOC(@"MITSUHAFOREVER_MINIMALWAVEHIGHNOHIDING_DESC"), @"key": @"minimalwavehighnohiding"}
       ];
 
       NSDictionary *data = settingsData[indexPath.row];
@@ -204,6 +206,7 @@
     NSArray *settingsData = @[
         @{@"key": @"colorflowenabled"},
         @{@"key": @"minimalwavehigh"},
+        @{@"key": @"minimalwavehighnohiding"}
     ];
 
     NSDictionary *data = settingsData[sender.tag];
