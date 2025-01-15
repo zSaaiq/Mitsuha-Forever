@@ -1,6 +1,6 @@
 # Mitsuha Forever
 
-This is a fork of a Nepeta's and ryannair05 tweak - [MitsuhaForever](https://github.com/ryannair05/MitsuhaForever) with support for iOS 15-16 Rootless, spotify wavehigh fixed and more to come.
+This is a fork of a Nepeta's and ryannair05 tweak - [MitsuhaForever](https://github.com/ryannair05/MitsuhaForever) with support for iOS 15-16 Rootless, spotify wavehigh fixed and YouTubeMusic Wave.
 
 ## Screenshots
 <img src="Preview.PNG" alt="Preview" />
@@ -12,6 +12,7 @@ This is a fork of a Nepeta's and ryannair05 tweak - [MitsuhaForever](https://git
 
 ### Supported apps
 * Spotify
+* YouTubeMusic
 * SpringBoard, Lockscreen, CC Music Player
 
 ## Donations
