@@ -2,6 +2,8 @@
 
 This is a fork of a Nepeta's and ryannair05 tweak - [MitsuhaForever](https://github.com/ryannair05/MitsuhaForever) with support for iOS 15-16 Rootless, spotify wavehigh fixed and YouTubeMusic Wave.
 
+Please Note: This Tweak is more or less Broken on iOS 16 and above.
+
 ## Screenshots
 <img src="Preview.PNG" alt="Preview" />
 
